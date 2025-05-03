@@ -95,7 +95,7 @@ export default function InteractiveGlobe({ className, onPhotoClick }) {
         });
       });
     });
-  }, []);
+  }, [onPhotoClick]);
 
   
 

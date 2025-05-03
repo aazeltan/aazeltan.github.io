@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import { HashRouterRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import About from './pages/About';
 import Playground from './pages/Playground';

@@ -27,7 +27,7 @@ const AutoScrollGallery = ({ images, scrollSpeed = 75 }) => {
         <div className="gallery-content" ref={contentRef}>
           {duplicatedImages.map((src, index) => (
             <span key={index}>
-              <img src={src} alt={`Gallery image ${index}`} />
+              <img src={src} alt={`reel ${index}`} />
             </span>
           ))}
         </div>
