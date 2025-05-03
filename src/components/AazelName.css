@@ -1,0 +1,121 @@
+
+.name-container {
+  position: relative;
+  width: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  background: transparent;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* wrap bubble + letters */
+.name-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 120px;
+}
+
+/* major note styling */
+/* major note styling */
+.major-note {
+  position: absolute;
+  top: 120px;
+  right: 20px;
+  width: 180px;
+  transform: rotate(-2deg);
+  pointer-events: auto;
+  z-index: 0;
+  transition: transform 0.2s ease;
+}
+
+.major-note:hover {
+  transform: translateY(-6px) scale(1.05) rotate(-2deg);
+}
+
+/* bubble */
+.hello-bubble {
+  position: absolute;
+  top: -120px;
+  left: -140px;
+  width: 240px;
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+}
+.hello-bubble:hover {
+  transform: translateY(-8px) scale(1.05) rotate(-3deg);
+}
+
+/* letters */
+.letters {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.letter {
+  display: block;
+  height: 140px;
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* per-letter tweaks */
+.letter--A { margin-right: -8px; height: 160px; transform: translateY(-4px); }
+.letter--a { margin: 0 -3px; height: 160px; transform: translateY(4px); }
+.letter--z { margin: 0 -5px; height: 140px; transform: translateY(2px); }
+.letter--e { margin-left: -6px; height: 140px; transform: translateY(-8px); }
+.letter--l { height: 190px; transform: translateY(0); }
+
+.letter--A:hover { transform: translateY(-8px) scale(1.08) rotate(4deg); }
+.letter--a:hover { transform: translateY(-8px) scale(1.08) rotate(-4deg); }
+.letter--z:hover { transform: translateY(-8px) scale(1.08) rotate(4deg); }
+.letter--e:hover { transform: translateY(-8px) scale(1.08) rotate(-4deg); }
+.letter--l:hover { transform: translateY(-8px) scale(1.08) rotate(4deg); }
+
+/* decorations */
+.decoration {
+  position: absolute;
+  opacity: 1;
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+}
+
+/* stars (~85px) */
+.star2, .star4, .star5, .star6 {
+  width: 85px;
+  z-index: 1;
+}
+
+/* Tighter, closer scatter */
+.star2 { top: 25%; left: 50%; transform: rotate(8deg); }
+.star4 { bottom: 12%; left: 6%; transform: rotate(-12deg); }
+.star5 { bottom: 5%; left: 50%; transform: rotate(-12deg); }
+.star6 { bottom: 5%; right: 20%; transform: rotate(15deg); }
+
+/* star hover */
+.star2:hover { transform: translateY(-8px) scale(1.1) rotate(5deg); }
+.star3:hover { transform: translateY(-8px) scale(1.1) rotate(-10deg); }
+.star4:hover { transform: translateY(-8px) scale(1.1) rotate(14deg); }
+.star5:hover { transform: translateY(-8px) scale(1.1) rotate(-8deg); }
+.star6:hover { transform: translateY(-8px) scale(1.1) rotate(20deg); }
+
+/* flowers (48px) */
+.flower1, .flower2 {
+  width: 48px;
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.flower1 { bottom: 8%; left: 25%; }
+.flower2 { bottom: 8%; left: 65%; }
+
+.flower1:hover { transform: translateY(-6px) scale(1.05) rotate(-5deg); }
+.flower2:hover { transform: translateY(-6px) scale(1.05) rotate(7deg); }

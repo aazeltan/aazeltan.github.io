@@ -1,0 +1,128 @@
+/* src/components/WorkProject.css */
+
+/* Container for the entire work project card */
+.work-project {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 400px;
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  gap: 2rem;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out, box-shadow 0.3s ease-out;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+/* Visible state applied when the element scrolls into view */
+.work-project.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Reverse layout for WorkProjectRight component */
+.work-project.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image column: remove extra spacing, crop overflow */
+.work-project-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* crop excess parts of the image */
+  /* removed padding and background-color to eliminate grey margins */
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+}
+
+/* Screenshot: fill container and crop with cover */
+.project-screenshot {
+  width: 100%;
+  height: auto;
+  object-fit: cover;    /* maintain aspect ratio, crop overflow */
+  object-position: center;
+  border-radius: 8px;
+}
+
+/* Content column: logo, title, description, tags */
+.work-project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+/* Company logo styling */
+.company-logo {
+  height: 40px;
+  width: auto;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+/* Role title styling */
+.role-title {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Main project headline */
+.project-headline {
+  font-size: 2rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+/* Short description */
+.project-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Tag container */
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Individual tag styling */
+.work-tag {
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 8px 12px;
+  font-family: 'Menlo', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: flex;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .work-project {
+    flex-direction: column;
+    margin: 2rem auto;
+  }
+  .work-project-image,
+  .work-project-content {
+    width: 100%;
+    flex: unset;
+  }
+  .work-project-content {
+    padding: 1rem;
+  }
+}

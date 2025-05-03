@@ -1,0 +1,253 @@
+/* src/pages/Home.css */
+
+/* 0) Import Literata with Light (300) weight */
+@import url('https://fonts.googleapis.com/css2?family=Literata:wght@300;400;500;600&display=swap');
+
+/* Disable underlines globally */
+a {
+  text-decoration: none;
+}
+
+.night {
+  position: fixed;
+  z-index: 0;
+
+}
+/* page background */
+body {
+  background-color: #fffcf9;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* header intro */
+.home-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  padding-top: 30px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* AazelName graphic */
+.home-name {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  transform: scale(1.3);
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Styled role line using Literata */
+.home-role {
+  align-self: flex-start;
+  margin: 50px 0 8px 170px;
+  font-family: 'Literata', serif;
+  font-size: 30px;
+  font-weight: 300;       /* Light weight */
+  color: #666;
+  font-style: italic;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  text-transform: none;
+}
+
+/* status line */
+.home-status {
+  align-self: flex-start;
+  margin: 0 0 0 170px;
+  color: #999;
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.home-status-logo {
+  height: 1em;
+  vertical-align: middle;
+  margin: -2px 0 0 0.1em;
+}
+
+/* underline only the status links */
+.home-status > a {
+  text-decoration: underline;
+}
+.home-status > a:hover {
+  text-decoration-color: #70A068;
+}
+
+/* Uber & Handshakes hover pop */
+.home-status-link {
+  color: #999;
+  font-weight: 400;
+  transition: transform 0.2s ease, font-weight 0.2s ease;
+}
+.home-status-link:hover {
+  font-weight: 600;
+  transform: translateY(-2px);
+  color: #70A068;
+}
+
+/* scroll arrow: slimmer and less wide */
+.intro-arrow {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(1.3) scaleY(0.8);
+    font-size: 2.7rem;        /* a bit smaller overall */
+    color: #ccc;
+    pointer-events: none;
+  
+    /* run dropIn once, then bounce forever */
+    animation-name: dropIn, bounce;
+    animation-duration: 0.6s, 2s;
+    animation-timing-function: ease-out, ease-in-out;
+    animation-delay: 0.7s, 0.7s;
+    animation-fill-mode: both, none;
+    animation-iteration-count: 1, infinite;
+  }
+  
+  /* keyframes for drop-in need to match the new scaleX/scaleY */
+  @keyframes dropIn {
+    0% {
+      transform: translateY(-40px) translateX(-50%) scaleX(1.3) scaleY(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) translateX(-50%) scaleX(1.3) scaleY(0.8);
+      opacity: 1;
+    }
+  }
+  
+  /* keyframes for bounce with the new scale */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) scaleX(1.3) scaleY(0.8) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) scaleX(1.3) scaleY(0.8) translateY(8px);
+    }
+  }
+  
+
+/* Experiences heading */
+.home-projects-h1 {
+  align-self: flex-start;
+  margin: 45px 0 24px 60px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* projects layout */
+.home-projects {
+  display: flex;
+  flex-direction: row;
+  margin: 5vw 10vw;
+}
+.home-projects:hover {
+  opacity: 0.7;
+}
+.home-project-img {
+  width: 40vw;
+  height: 23vw;
+  border-radius: 8px;
+}
+#proj2 {
+  width: 40vw;
+  text-align: right;
+  margin-right: 20px;
+}
+.home-tags {
+  display: flex;
+  margin: 20px 0 0 15px;
+  flex-wrap: wrap;
+}
+.home-tag {
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 8px;
+  margin: 5px;
+  font-family: 'Menlo';
+  font-size: 12px;
+  text-transform: uppercase;
+  display: flex;
+}
+.home-project-description {
+  width: 40vw;
+  height: 23vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .home-header { padding-top: 40px; }
+  .home-role {
+    margin: 20px 0 4px 20px;
+    font-size: 24px;
+  }
+  .home-status { margin: 30px 0 0 20px; }
+  .home-projects-h1 { margin: 16px 0 16px 40px; }
+  .home-projects {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+  }
+  .intro-arrow {
+    bottom: 200px;
+    transform: translateX(-50%) scaleX(1.3);
+    /* bounce animation parameters remain the same */
+  }
+  .home-project-img { width: 80vw; height: 45vw; }
+  .home-project-description {
+    height: 200px;
+    width: 80vw;
+    margin: 0;
+  }
+  .home-tag { font-size: 12px; margin: 3px; padding: 5px; }
+}
+@media (max-width: 1000px) {
+  .home-name {
+    transform: scale(1.1);
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+  .home-status {
+    margin: 20px 0 32px 30px;
+    font-size: 16px;
+  }
+  .intro-arrow {
+    bottom: 250px;
+    transform: translateX(-50%) scaleX(1.4);
+  }
+  .home-projects-h1 {
+    margin: 24px 0 16px 50px;
+    font-size: 28px;
+  }
+}
+
+@keyframes dropIn {
+    0% {
+      transform: translateY(-80px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .home-name, .home-role, .home-status{
+    animation: dropIn 0.9s ease-out both;
+    animation-delay: 0.1s;
+  }

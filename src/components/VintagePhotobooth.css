@@ -1,0 +1,129 @@
+
+.vintage-photobooth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent; 
+}
+
+
+.vintage-photobooth .strip-container {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 280 / 700;
+  overflow: hidden;
+  background: #000;
+  border: 4px solid #111;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+}
+
+
+.vintage-photobooth .strip {
+  display: flex;
+  flex-direction: column;
+  height: 200%;
+  animation: scrollAnim 15s linear infinite;
+}
+.vintage-photobooth .strip-container:hover .strip {
+  animation-play-state: paused;
+}
+
+.vintage-photobooth .strip-container::before,
+.vintage-photobooth .strip-container::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 8px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #222 0, #222 4px,
+    transparent 4px, transparent 8px
+  );
+  z-index: 10;
+}
+.vintage-photobooth .strip-container::before { left: 0; }
+.vintage-photobooth .strip-container::after  { right: 0; }
+
+.vintage-photobooth .photo-wrapper {
+  margin: 6px 0;
+  position: relative;
+}
+
+.vintage-photobooth .photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  background: #111;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    inset 0 0 6px rgba(0,0,0,0.6),
+    0 2px 6px rgba(0,0,0,0.5);
+}
+
+
+.vintage-photobooth .film-grain {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg…noise…%3E");
+  mix-blend-mode: multiply;
+  z-index: 3;
+}
+
+
+.vintage-photobooth .scratches {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg…dust…%3E");
+  mix-blend-mode: screen;
+  z-index: 4;
+}
+
+.vintage-photobooth .bw-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+.vintage-photobooth .color-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+.vintage-photobooth .photo-wrapper:hover .bw-img {
+  opacity: 0;
+}
+.vintage-photobooth .photo-wrapper:hover .color-img {
+  opacity: 1;
+}
+
+
+.vintage-photobooth .grunge-overlay,
+.vintage-photobooth .vignette {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.vintage-photobooth .grunge-overlay {
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg…grunge…%3E");
+  mix-blend-mode: overlay;
+  z-index: 5;
+}
+.vintage-photobooth .vignette {
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.7);
+  z-index: 6;
+}
+
+@keyframes scrollAnim {
+  0%   { transform: translateY(0);     }
+  100% { transform: translateY(-50%); }
+}
