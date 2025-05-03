@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: "🚀 Deploy React App via gh-pages"
 
 on:
@@ -6,28 +7,26 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
+    name: Build and Deploy
     runs-on: ubuntu-latest
+
     steps:
-      # 1. Check out your code
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      # 2. Set up Node.js
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
-      # 3. Install dependencies
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      # 4. Build (with CI warnings suppressed)
-      - name: Build without CI-errors
-        env:
-          CI: false
+      - name: Build
         run: npm run build
 
-      # 5. Deploy via your gh-pages script
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
