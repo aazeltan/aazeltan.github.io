@@ -1,16 +1,14 @@
-// craco.config.js
+
 module.exports = {
     style: {
       postcss: {
-        plugins: [
-          require('cssnano')({
-            preset: ['default', {
-              // disable SVGO
-              svgo: false,
-            }],
-          }),
-        ],
+        // receive CRA’s default plugin list
+        plugins: (defaultPlugins) => {
+          // remove any plugin named 'postcss-inline-svg'
+          return defaultPlugins.filter(
+            (pl) => pl.postcssPlugin !== 'postcss-inline-svg'
+          );
+        },
       },
     },
-  }
-  
+  };
