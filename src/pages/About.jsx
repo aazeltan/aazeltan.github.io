@@ -19,23 +19,23 @@ export default function About() {
   const tldrItems = [
     {
       question: 'What tools do you work with most often?',
-      answer: `I mostly use Python and SQL for data and backend work, and JavaScript or TypeScript when I’m building frontends. For research projects, I’ll pull out R, and I use Git to collaborate with teammates. When I'm thinking through product ideas, I’ll sketch things out in Figma. I enjoy bouncing between code and design, I find it keeps things interesting.`
+      answer: "I mostly use Python and SQL for data and backend work, and JavaScript or TypeScript when I’m building frontends. For research projects, I’ll pull out R, and I use Git to collaborate with teammates. When I'm thinking through product ideas, I’ll sketch things out in Figma. I enjoy bouncing between code and design, I find it keeps things interesting."
     },
     {
       question: 'What is Mathematics of Computation?',
-      answer: `Being a Math of Comp major means I don’t just know how to code up models—I actually understand the math that makes them work. It’s a mix of math, computer science, and theory, so I can build things and explain what’s going on under the hood.`
+      answer: 'Being a Math of Comp major means I don’t just know how to code up models—I actually understand the math that makes them work. It’s a mix of math, computer science, and theory, so I can build things and explain what’s going on under the hood.'
     },
     {
-      question: 'What communities are you part of at UCLA?',
-      answer: `A mix of tech, policy, and home. I’m part of the Society of Women Engineers, where I keep in touch with my interest in advocacy through national lobbying efforts. I learned web dev through ACM Hack and started teaching it too. DataRes helped me level up my data skills, and The Bruin Group gave me a taste of business. The Singapore Students Association? That’s my home away from home.`
+      question: 'What communities are you part npm run deployof at UCLA?',
+      answer: 'A mix of tech, policy, and home. I’m part of the Society of Women Engineers, where I keep in touch with my interest in advocacy through national lobbying efforts. I learned web dev through ACM Hack and started teaching it too. DataRes helped me level up my data skills, and The Bruin Group gave me a taste of business. The Singapore Students Association? That’s my home away from home.'
     },
     {
       question: 'What motivates you?',
-      answer: `Being a first-generation student means I’ve lived both sides — knowing what it’s like to not have access, and wanting to change that. I’m driven by the idea that systems can be reimagined to include more people, not just optimize for those already in the room. Whether I’m building tools, teaching students, or shaping policy, I’m always asking: who else could this help?`
+      answer: 'Being a first-generation student means I’ve lived both sides — knowing what it’s like to not have access, and wanting to change that. I’m driven by the idea that systems can be reimagined to include more people, not just optimize for those already in the room. Whether I’m building tools, teaching students, or shaping policy, I’m always asking: who else could this help?'
     },
     {
       question: 'What’s one skill you’re unexpectedly good at?',
-      answer: `Braiding hair! It’s a bit random, but I’ve gotten pretty good at it since first learning how to French braid at 9—I was determined to recreate Katniss Everdeen’s braid for school, and my mum definitely wasn’t waking up at 6am to do it for me.`
+      answer: 'Braiding hair! It’s a bit random, but I’ve gotten pretty good at it since first learning how to French braid at 9—I was determined to recreate Katniss Everdeen’s braid for school, and my mum definitely wasn’t waking up at 6am to do it for me.'
     }
   ];
   
