@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5cd41cbd.css",
-    "main.js": "/static/js/main.d4e258c8.js",
+    "main.css": "/static/css/main.70f0d83c.css",
+    "main.js": "/static/js/main.287fea52.js",
     "static/media/IMG_6311.JPG": "/static/media/IMG_6311.1ebdc65d5ef5aff8aa2e.JPG",
     "static/media/IMG_6373.JPG": "/static/media/IMG_6373.5c08c78ef826cc081c64.JPG",
     "static/media/IMG_6299.JPG": "/static/media/IMG_6299.86156617128af9f908ea.JPG",
@@ -73,11 +73,11 @@
     "static/media/the_edge_of_seventeen.webp": "/static/media/the_edge_of_seventeen.1be6528fd0de4eb24791.webp",
     "static/media/star.png": "/static/media/star.db05099ad951013ff67c.png",
     "index.html": "/index.html",
-    "main.5cd41cbd.css.map": "/static/css/main.5cd41cbd.css.map",
-    "main.d4e258c8.js.map": "/static/js/main.d4e258c8.js.map"
+    "main.70f0d83c.css.map": "/static/css/main.70f0d83c.css.map",
+    "main.287fea52.js.map": "/static/js/main.287fea52.js.map"
   },
   "entrypoints": [
-    "static/css/main.5cd41cbd.css",
-    "static/js/main.d4e258c8.js"
+    "static/css/main.70f0d83c.css",
+    "static/js/main.287fea52.js"
   ]
 }
