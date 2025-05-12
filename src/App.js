@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import CursorTrail from './components/CursorTrail';
 import ScrollToTop from './components/ScrollToTop';
 import About from './pages/About';
 import Playground from './pages/Playground';
@@ -12,6 +13,7 @@ import './App.css';
 function App() {
   return (
     <>
+      <CursorTrail />
       <div className="app-navbar-wrapper">
         <Navbar />
       </div>
