@@ -8,11 +8,6 @@ a {
   text-decoration: none;
 }
 
-.night {
-  position: fixed;
-  z-index: 0;
-
-}
 /* page background */
 body {
   background-color: #fffcf9;
@@ -22,14 +17,13 @@ body {
 
 /* header intro */
 .home-header {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   min-height: 80vh;
-  padding-top: 30px;
+  padding: 10px 0;
   width: 100%;
-  overflow: hidden;
   z-index: 1;
 }
 
@@ -37,11 +31,11 @@ body {
 .home-name {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 900px;
+  width: 80%;
+  max-width: 700px;
   transform: scale(1.3);
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin: 30px 0 20px;
+  transition: transform 0.3s ease, max-width 0.3s ease, margin 0.3s ease;
 }
 
 /* Styled role line using Literata */
@@ -49,14 +43,14 @@ body {
   align-self: flex-start;
   margin: 50px 0 8px 170px;
   font-family: 'Literata', serif;
-  font-size: 30px;
-  font-weight: 300;       /* Light weight */
+  font-size: 30px;       /* Always larger */
+  font-weight: 300;
   color: #666;
   font-style: italic;
   letter-spacing: 0.2px;
   display: flex;
   align-items: center;
-  text-transform: none;
+  transition: font-size 0.3s ease, margin 0.3s ease;
 }
 
 /* status line */
@@ -64,10 +58,11 @@ body {
   align-self: flex-start;
   margin: 0 0 0 170px;
   color: #999;
-  font-size: 18px;
+  font-size: 18px;       /* Always smaller than .home-role */
   font-weight: 300;
   display: flex;
   align-items: center;
+  transition: font-size 0.3s ease, margin 0.3s ease;
 }
 
 .home-status-logo {
@@ -96,47 +91,40 @@ body {
   color: #70A068;
 }
 
-/* scroll arrow: slimmer and less wide */
+/* scroll arrow: in-flow flex item pushed to bottom */
 .intro-arrow {
-    position: absolute;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%) scaleX(1.3) scaleY(0.8);
-    font-size: 2.7rem;        /* a bit smaller overall */
-    color: #ccc;
-    pointer-events: none;
-  
-    /* run dropIn once, then bounce forever */
-    animation-name: dropIn, bounce;
-    animation-duration: 0.6s, 2s;
-    animation-timing-function: ease-out, ease-in-out;
-    animation-delay: 0.7s, 0.7s;
-    animation-fill-mode: both, none;
-    animation-iteration-count: 1, infinite;
+  margin-top: auto;
+  margin-bottom: 2rem;
+  font-size: 2.7rem;
+  color: #ccc;
+  pointer-events: none;
+  animation-name: dropIn, bounce;
+  animation-duration: 0.6s, 2s;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-delay: 0.7s, 0.7s;
+  animation-fill-mode: both, none;
+  animation-iteration-count: 1, infinite;
+}
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-40px) scaleX(1.3) scaleY(0.8);
+    opacity: 0;
   }
-  
-  /* keyframes for drop-in need to match the new scaleX/scaleY */
-  @keyframes dropIn {
-    0% {
-      transform: translateY(-40px) translateX(-50%) scaleX(1.3) scaleY(0.8);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0) translateX(-50%) scaleX(1.3) scaleY(0.8);
-      opacity: 1;
-    }
+  100% {
+    transform: translateY(0) scaleX(1.3) scaleY(0.8);
+    opacity: 1;
   }
-  
-  /* keyframes for bounce with the new scale */
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateX(-50%) scaleX(1.3) scaleY(0.8) translateY(0);
-    }
-    50% {
-      transform: translateX(-50%) scaleX(1.3) scaleY(0.8) translateY(8px);
-    }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scaleX(1.3) scaleY(0.8) translateY(0);
   }
-  
+  50% {
+    transform: scaleX(1.3) scaleY(0.8) translateY(8px);
+  }
+}
 
 /* Experiences heading */
 .home-projects-h1 {
@@ -146,108 +134,122 @@ body {
   font-weight: bold;
 }
 
-/* projects layout */
+/* projects container: responsive flex-grid */
 .home-projects {
   display: flex;
-  flex-direction: row;
-  margin: 5vw 10vw;
-}
-.home-projects:hover {
-  opacity: 0.7;
-}
-.home-project-img {
-  width: 40vw;
-  height: 23vw;
-  border-radius: 8px;
-}
-#proj2 {
-  width: 40vw;
-  text-align: right;
-  margin-right: 20px;
-}
-.home-tags {
-  display: flex;
-  margin: 20px 0 0 15px;
   flex-wrap: wrap;
-}
-.home-tag {
-  border: 1px solid black;
-  border-radius: 30px;
-  padding: 8px;
-  margin: 5px;
-  font-family: 'Menlo';
-  font-size: 12px;
-  text-transform: uppercase;
-  display: flex;
-}
-.home-project-description {
-  width: 40vw;
-  height: 23vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 5vw 10vw 4rem;
 }
 
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .home-header { padding-top: 40px; }
-  .home-role {
-    margin: 20px 0 4px 20px;
-    font-size: 24px;
-  }
-  .home-status { margin: 30px 0 0 20px; }
-  .home-projects-h1 { margin: 16px 0 16px 40px; }
-  .home-projects {
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 20px;
-  }
-  .intro-arrow {
-    bottom: 200px;
-    transform: translateX(-50%) scaleX(1.3);
-    /* bounce animation parameters remain the same */
-  }
-  .home-project-img { width: 80vw; height: 45vw; }
-  .home-project-description {
-    height: 200px;
-    width: 80vw;
-    margin: 0;
-  }
-  .home-tag { font-size: 12px; margin: 3px; padding: 5px; }
+/* target each project card inside .home-projects */
+.home-projects > * {
+  flex: 1 1 calc(32% - 2rem);
+  max-width: calc(32% - 2rem);
 }
+
+/* make images/descriptions fluid */
+.home-project-img,
+.home-project-description {
+  width: 100%;
+  height: auto;
+}
+
+/* =============== Responsive Overrides =============== */
+
+/* large laptops → smaller desktops */
+@media (max-width: 1200px) {
+  .home-name {
+    transform: scale(1.2);
+    max-width: 80%;
+  }
+  .home-role { font-size: 26px; }
+  .home-status { font-size: 16px; }
+}
+
+/* tablets & small laptops */
 @media (max-width: 1000px) {
   .home-name {
     transform: scale(1.1);
-    margin-top: 20px;
-    margin-bottom: 16px;
+    max-width: 85%;
+    margin: 40px auto 16px;
+  }
+  .home-role {
+    font-size: 24px;
+    margin-left: 5%;
   }
   .home-status {
-    margin: 20px 0 32px 30px;
-    font-size: 16px;
+    font-size: 14px;
+    margin-left: 5%;
   }
-  .intro-arrow {
-    bottom: 250px;
-    transform: translateX(-50%) scaleX(1.4);
+  .home-projects {
+    margin: 4vw 5vw 4rem;
   }
-  .home-projects-h1 {
-    margin: 24px 0 16px 50px;
-    font-size: 28px;
+  .home-projects > * {
+    flex: 1 1 calc(48% - 2rem);
+    max-width: calc(48% - 2rem);
   }
 }
 
-@keyframes dropIn {
-    0% {
-      transform: translateY(-80px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+/* phones (≤900px) */
+@media (max-width: 900px) {
+  .home-header { padding-top: 40px; }
+
+  .home-name {
+    transform: scale(0.9) !important;
+    max-width: 90% !important;
+    margin: 20px auto 12px !important;
   }
-  
-  .home-name, .home-role, .home-status{
-    animation: dropIn 0.9s ease-out both;
-    animation-delay: 0.1s;
+  .home-role {
+    font-size: 20px;
+    margin: 20px 0 4px 5%;
   }
+  .home-status {
+    font-size: 13px;
+    margin: 10px 0 0 5%;
+  }
+
+  .home-projects {
+    flex-direction: column !important;
+    margin: 4vw 5vw 4rem;
+  }
+  .home-projects > * {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .home-project-img,
+  .home-project-description {
+    width: 100%;
+  }
+  .home-tag {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+}
+
+/* small phones (≤600px) */
+@media (max-width: 600px) {
+  .home-name {
+    transform: scale(0.55) !important;
+    max-width: 80% !important;
+    margin: 20px auto 12px !important;
+  }
+  .home-role {
+    font-size: 18px;
+    margin-left: 3%;
+  }
+  .home-status {
+    font-size: 13px;
+    margin-left: 3%;
+  }
+  .intro-arrow {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .home-projects-h1 {
+    margin-left: 3%;
+    font-size: 1.6rem;
+  }
+}

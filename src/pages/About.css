@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Literata:wght@300;400&display=swap');
 
 .about-page {
-  padding: 10px 120px 60px;    /* increased bottom padding for more space before footer */
+  padding: 0px 120px 60px;
   background-color: #fffcf9;
 }
 
@@ -10,24 +10,23 @@
 .about-content {
   display: flex;
   align-items: flex-start;
-  gap: 150px;      /* much tighter */
+  gap: 150px;
   flex-wrap: nowrap;
   padding-top: 20px;
   padding-bottom: 30px;
-  padding-left: 20px; 
-
+  padding-left: 20px;
 }
 
 /* LEFT: Image + strip */
 .about-image-block {
-  padding-top: 30px;
+  padding-top: 10px;
   position: relative;
   flex-shrink: 0;
-  width: 550px;   /* increased width */
+  width: 550px;
 }
 
 .about-main-img {
-  width: 85%;    /* fill ~420px */
+  width: 85%;
   height: auto;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
@@ -38,7 +37,7 @@
   position: absolute;
   bottom: -160px;
   right: -20px;
-  width: 200px;   /* keep original strip width */
+  width: 200px;
   transform: rotate(4deg);
 }
 .about-photo-strip .strip-container {
@@ -52,7 +51,6 @@
   max-width: 800px;
 }
 
-/* Greeting in top-right of text column */
 .text-greeting {
   display: flex;
   justify-content: flex-start;
@@ -72,28 +70,25 @@
   animation: float 2.5s ease-in-out infinite;
 }
 
-/* float animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-7px); }
 }
 
-/* the main intro paragraph */
 .about-intro {
   font-size: 16px;
   line-height: 1.75;
   color: #222;
-  margin: 0 0 3rem;   /* added bottom margin before footer */
+  margin: 0 0 3rem;
 }
 
-/* new class for the first three emoji-led lines */
 .emoji-point {
   font-family: 'Literata', serif;
-  font-size: 1.5em;  /* ~12.5% larger than base */
+  font-size: 1.5em;
   line-height: 1.6;
 }
 
-/* STACK on MOBILE */
+/* MOBILE STACK at ≤900px */
 @media (max-width: 900px) {
   .about-content {
     flex-direction: column-reverse;
@@ -129,37 +124,151 @@
   }
 }
 
-/* BOUNCE-IN ANIMATION */
-@keyframes bounce-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(-20px);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.05) translateY(10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* apply drop-in to the image and text blocks */
+/* DROP-IN targets */
 .about-image-block,
-.about-text-block, .text-greeting,
-.wave-gif {
+.about-text-block,
+.text-greeting,
+.hi-there-img,
+.wave-gif,
+.about-intro,
+.tldr-section {
   opacity: 0;
   animation: drop-in 0.6s ease-out forwards;
 }
 
-/* stagger them slightly */
-.about-image-block, .text-greeting,
-.wave-gif  {
+.about-image-block {
+  animation-delay: 0.1s;
+}
+
+.hi-there-img {
   animation-delay: 0.2s;
 }
-.about-text-block, .text-greeting,
-.wave-gif  {
+
+.wave-gif {
+  animation-delay: 0.3s;
+}
+
+.about-intro {
   animation-delay: 0.4s;
 }
+
+.tldr-section {
+  animation-delay: 0.5s;
+}
+
+
+/* —— NEW RESPONSIVE BREAKPOINTS —— */
+
+/* ≤1200px: tighten gaps, center two-col layout */
+@media (max-width: 1200px) {
+  .about-page {
+    padding: 0px 80px 50px;
+  }
+  .about-content {
+    gap: 100px;
+    justify-content: center;
+  }
+  .about-image-block {
+    width: 450px;
+  }
+}
+
+/* ≤1000px: further shrink image & text, scale emojis & greetings */
+@media (max-width: 1000px) {
+  .about-page {
+    padding: 0px 40px 40px;
+  }
+  .about-content {
+    gap: 60px;
+  }
+  .about-image-block {
+    width: 380px;
+  }
+  .hi-there-img {
+    height: 160px;
+  }
+  .wave-gif {
+    width: 64px;
+  }
+  .emoji-point {
+    font-size: 1.3em;
+  }
+  .about-intro {
+    font-size: 15px;
+  }
+}
+
+/* ≤600px: smallest phones, stack & shrink everything */
+@media (max-width: 600px) {
+  .about-page {
+    padding: 0px 20px 30px;
+  }
+  .about-content {
+    gap: 12px;
+  }
+  .about-image-block {
+    width: 240px;
+  }
+  .hi-there-img {
+    height: 120px;
+  }
+  .wave-gif {
+    width: 48px;
+  }
+  .emoji-point {
+    font-size: 1.1em;
+  }
+  .about-intro {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .tldr-section {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* 1) Stack text first, then image/strip */
+  .about-content {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+
+  /* 2) Ensure text block is full width with breathing room */
+  .about-text-block {
+    max-width: 100%;
+    padding-bottom: 2rem;
+  }
+
+  /* 3) Center & shrink the image block */
+  .about-image-block {
+    width: 240px;
+    margin: 0 auto;
+  }
+  .about-main-img {
+    width: 100%;
+  }
+
+  /* 4) Center the strip & shrink it under the photo */
+  .about-photo-strip {
+    width: 120px;
+    bottom: -80px;                   /* drop it beneath the image */
+    right: calc(50% - 60px);         /* (240÷2)−(120÷2) to center */
+    transform: rotate(4deg);
+  }
+  .about-photo-strip .strip-container {
+    width: 120px;
+    height: 168px;                   /* preserve 5:7 ratio */
+  }
+
+  /* 5) Keep greeting & intro centered */
+  .text-greeting {
+    justify-content: center;
+  }
+  .about-page {
+    padding-bottom: 3rem;
+  }
+}
+
 
 

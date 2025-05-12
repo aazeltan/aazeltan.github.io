@@ -1,4 +1,4 @@
-import React from 'react';  
+import React from 'react';
 import './Home.css';
 
 import WorkProjectLeft from '../components/WorkProjectLeft';
@@ -26,11 +26,15 @@ const Home = () => {
           <AazelName />
         </div>
 
-        {/* dynamic typing effect */}
         <p className="home-role">
           I am a&nbsp;
           <Typewriter
-            words={['Product Manager', 'Data Scientist', 'Developer', 'Aspiring Designer']}
+            words={[
+              'Product Manager',
+              'Data Scientist',
+              'Developer',
+              'Aspiring Designer'
+            ]}
             typingSpeed={120}
             deletingSpeed={60}
             pause={2000}
@@ -67,17 +71,17 @@ const Home = () => {
           </a>
         </p>
 
+        {/* Arrow is now a flex item pushed to the bottom */}
         <div className="intro-arrow">⌄</div>
       </div>
 
-
-      <WorkProjectLeft 
+      <WorkProjectLeft
         screenshot={ExponentProj}
         companyLogo={ExponentLogo}
         roleTitle="Product Management Fellow"
         projectHeadline="Led Data Science Track Roadmap"
         projectDescription="Prioritized updates across 100+ lessons, driving a 15% lift in ratings and 30% fewer confusion reports."
-        tags={[ 'Product Strategy', 'Roadmap', 'Content' ]}
+        tags={['Product Strategy', 'Roadmap', 'Content']}
       />
 
       <WorkProjectRight
@@ -86,7 +90,7 @@ const Home = () => {
         roleTitle="Product Manager (Contract)"
         projectHeadline="Redefining Campus Dining Options"
         projectDescription="Synthesized user insights into 5 personas and revamped flows, cutting checkout time by ~25%."
-        tags={[ 'UX Research', 'Figma', 'A/B Testing' ]}
+        tags={['UX Research', 'Figma', 'A/B Testing']}
       />
 
       <WorkProjectLeft
@@ -95,7 +99,7 @@ const Home = () => {
         roleTitle="Product Management Intern"
         projectHeadline="Championed B2B API Revenue Growth"
         projectDescription="Defined roadmap that generated $30K+, led AI risk feature for 60K+ firms, boosting reliability by 40%."
-        tags={[ 'B2B SaaS', 'AI', 'UAT' ]}
+        tags={['B2B SaaS', 'AI', 'UAT']}
       />
     </>
   );

@@ -30,28 +30,27 @@
   flex-direction: row-reverse;
 }
 
-/* Image column: remove extra spacing, crop overflow */
+/* Image column */
 .work-project-image {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* crop excess parts of the image */
-  /* removed padding and background-color to eliminate grey margins */
+  overflow: hidden;
   aspect-ratio: 16/9;
   border-radius: 8px;
 }
 
-/* Screenshot: fill container and crop with cover */
+/* Screenshot */
 .project-screenshot {
   width: 100%;
   height: auto;
-  object-fit: cover;    /* maintain aspect ratio, crop overflow */
+  object-fit: cover;
   object-position: center;
   border-radius: 8px;
 }
 
-/* Content column: logo, title, description, tags */
+/* Content column */
 .work-project-content {
   flex: 1;
   display: flex;
@@ -61,16 +60,15 @@
   padding: 2rem;
 }
 
-/* Company logo styling */
+/* Company logo */
 .company-logo {
   height: 40px;
   width: auto;
-  align-self: flex-start;
   margin-bottom: 1rem;
   object-fit: contain;
 }
 
-/* Role title styling */
+/* Role title */
 .role-title {
   font-size: 1rem;
   color: #666;
@@ -100,7 +98,7 @@
   gap: 0.5rem;
 }
 
-/* Individual tag styling */
+/* Individual tag */
 .work-tag {
   border: 1px solid black;
   border-radius: 30px;
@@ -111,18 +109,24 @@
   display: flex;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
+/* ================================
+   Responsive collapse at 900px
+   ================================ */
+@media (max-width: 900px) {
   .work-project {
-    flex-direction: column;
-    margin: 2rem auto;
+    flex-direction: column !important;  /* drop reverse */
+    margin: 2rem 1rem;                  /* narrower side gaps */
+    max-width: none;                    /* allow full width */
   }
+
   .work-project-image,
   .work-project-content {
     width: 100%;
-    flex: unset;
+    flex: unset;                        /* disable side-by-side flex */
+    padding: 0;                         /* remove extra padding on image */
   }
+
   .work-project-content {
-    padding: 1rem;
+    padding: 1rem;                      /* smaller padding for content */
   }
 }

@@ -132,7 +132,6 @@ body {
   margin-right: 17px;
   margin-top: 40px;
 
-  /* animate on initial load */
   animation: drop-in 0.6s ease-out both;
   animation-delay: 0.8s;
 }
@@ -224,10 +223,11 @@ body {
   margin-top: .5rem;
 }
 
-/* — RESPONSIVE — */
+/* — RESPONSIVE AT 900px — */
 @media (max-width: 900px) {
   .playground-content {
     flex-direction: column;
+    align-items: flex-start;
   }
   .playground-globe {
     width: 90vw;
@@ -237,34 +237,66 @@ body {
 
 /* — ANIMATIONS — */
 @keyframes drop-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 @keyframes bounce-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-70px) scale(0.9);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(20px) scale(1.05);
-  }
-  80% {
-    transform: translateY(-15px) scale(0.95);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(-70px) scale(0.9); }
+  60% { opacity: 1; transform: translateY(20px) scale(1.05); }
+  80% { transform: translateY(-15px) scale(0.95); }
+  100% { transform: translateY(0) scale(1); }
 }
 
-/* — TRIGGER DROP-IN ONCE VISIBLE FOR GLOBE & FAVORITES — */
 .playground-globe-container.visible,
 .favorite-block.visible {
   animation: drop-in 0.6s ease-out both;
+}
+
+/* — ADDITIONAL RESPONSIVE ENHANCEMENTS — */
+
+/* —— VERY large → 1200px —— center two columns when they no longer fill edge-to-edge —— */
+@media (max-width: 1200px) {
+  .playground-content {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .playground-main-col,
+  .playground-sidebar {
+    flex: none;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* —— Tablet (900px) —— your existing stacking + proportional scaling —— */
+@media (max-width: 900px) {
+  /* globe & favorites full width */
+  .playground-globe-container #viewDiv,
+  .playground-globe-container .globe-wrapper {
+    width: calc(100vw - 2rem);
+    height: calc(100vw - 2rem);
+  }
+  .playground-sidebar {
+    margin: 2rem auto 0;
+    width: 90%;
+    max-width: 500px;
+    margin-right: 0;
+  }
+  .photo-strip-gif {
+    max-width: 90%;
+    margin: 1rem auto 0;
+  }
+}
+
+/* —— Phone (600px) —— shrink typography + controls —— */
+@media (max-width: 600px) {
+  .playground-page {
+    padding: 1rem;
+  }
+  .playground-header-title { font-size: 1.8rem; }
+  .playground-tagline     { font-size: 1rem; }
+  .quiz-buttons button     { padding: .4rem 0; font-size: .8rem; }
+  .watching-poster         { width: 80px; height: 120px; }
+  .watching-card           { justify-content: center; }
 }
