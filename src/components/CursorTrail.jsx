@@ -10,12 +10,18 @@ export default function CursorTrail() {
     const ctx = canvas.getContext('2d');
     let mouseMoved = false;
 
-    const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    // pointer state includes hover flag
+    const pointer = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+      isHoveringClickable: false,
+    };
+
     const params = {
-      pointsNumber: 3,
-      maxRadius: 21,
-      minRadius: 15,
-      spring: 0.2,
+      pointsNumber: 2,
+      maxRadius: 22,
+      minRadius: 13,
+      spring: 0.3,
       friction: 0.4,
     };
 
@@ -26,18 +32,36 @@ export default function CursorTrail() {
       dy: 0,
     }));
 
-    // use clientX/Y so transforms and scroll don't distort it
     const updatePointer = (x, y) => {
       pointer.x = x;
       pointer.y = y;
     };
+
+    // selector for clickable elements
+    const clickableSelector = [
+      'a[href]',
+      'button',
+      '[role="button"]',
+      '[onclick]',
+      'input[type="button"]',
+      'input[type="submit"]',
+      '.clickable',
+    ].join(',');
+
     const onMove = e => {
       mouseMoved = true;
-      updatePointer(e.clientX, e.clientY);
+      const x = e.clientX;
+      const y = e.clientY;
+      const el = document.elementFromPoint(x, y);
+      pointer.isHoveringClickable = el?.matches(clickableSelector);
+      updatePointer(x, y);
     };
+
     const onTouch = e => {
       mouseMoved = true;
-      updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+      const x = e.touches[0].clientX;
+      const y = e.touches[0].clientY;
+      updatePointer(x, y);
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
@@ -57,6 +81,7 @@ export default function CursorTrail() {
         pointer.y = (0.5 + 0.02 * Math.cos(0.004 * t)) * canvas.height;
       }
 
+      // update trail physics
       trail.forEach((p, i) => {
         const prev = i === 0 ? pointer : trail[i - 1];
         p.dx += (prev.x - p.x) * params.spring;
@@ -72,9 +97,16 @@ export default function CursorTrail() {
         const tnorm = i / (trail.length - 1);
         const radius = params.maxRadius * (1 - tnorm) + params.minRadius * tnorm;
         const alpha = 0.5 * (1 - tnorm) + 0.2;
+
+        // switch color when hovering clickable
+        if (pointer.isHoveringClickable) {
+          ctx.fillStyle = `rgba(255, 255, 191, 0.6`; // tomato
+        } else {
+          ctx.fillStyle = `rgba(100, 149, 237, ${alpha})`; // cornflower blue
+        }
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 149, 237, ${alpha})`;
         ctx.fill();
       });
 

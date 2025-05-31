@@ -9,3 +9,15 @@
   pointer-events: none; /* so it never blocks real interactions */
   z-index: 9999;
 }
+
+/* hide by default on coarse (touch) devices) */
+.cursor-trail-canvas {
+  display: none;
+}
+
+/* only show when the device can hover and has a fine pointer (i.e. mouse) */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-trail-canvas {
+    display: block;
+  }
+}

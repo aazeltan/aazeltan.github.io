@@ -1,4 +1,4 @@
-// src/components/NowPlaying.jsx
+
 import React, { useEffect, useState, useRef } from 'react';
 import querystring from 'querystring';
 import { Buffer } from 'buffer';
@@ -167,4 +167,6 @@ export default function NowPlaying() {
     </a>
   );
 }
+
+
 
