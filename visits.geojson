@@ -73,18 +73,8 @@
     },
     {
       "type": "Feature",
-      "properties": { "name": "Las Vegas" },
-      "geometry": { "type": "Point", "coordinates": [-115.1398, 36.1699] }
-    },
-    {
-      "type": "Feature",
       "properties": { "name": "Grand Canyon" },
       "geometry": { "type": "Point", "coordinates": [-112.1129, 36.1069] }
-    },
-    {
-      "type": "Feature",
-      "properties": { "name": "Zion National Park" },
-      "geometry": { "type": "Point", "coordinates": [-113.0263, 37.2982] }
     },
     {
       "type": "Feature",
