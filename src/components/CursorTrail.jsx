@@ -21,7 +21,7 @@ export default function CursorTrail() {
       pointsNumber: 2,
       maxRadius: 22,
       minRadius: 13,
-      spring: 0.3,
+      spring: 0.2,
       friction: 0.4,
     };
 

@@ -35,7 +35,7 @@ const Footer = () => {
 
           <div className="footer-resume">
             <a 
-              href="path/to/your_resume.pdf" 
+              href="/Aazel_Tan_Resume.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="resume-link"

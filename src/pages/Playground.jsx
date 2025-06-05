@@ -35,11 +35,11 @@ export default function Playground() {
   const [quizAnswer, setQuizAnswer] = useState(null);
 
   const albumFavorites = [
-    { imageSrc: album1, alt: 'Eternal Sunshine – Ariana Grande', url: 'https://open.spotify.com/album/1' },
-    { imageSrc: album2, alt: 'Memories – Conan Gray',        url: 'https://open.spotify.com/album/2' },
-    { imageSrc: album3, alt: 'Universe – EXO',                url: 'https://open.spotify.com/album/3' },
-    { imageSrc: album4, alt: 'Justice – Justin Bieber',       url: 'https://open.spotify.com/album/4' },
-    { imageSrc: album5, alt: 'Red – Taylor Swift',            url: 'https://open.spotify.com/album/5' },
+    { imageSrc: album1, alt: 'Eternal Sunshine – Ariana Grande', url: 'https://open.spotify.com/album/5EYKrEDnKhhcNxGedaRQeK?si=94Wy10mDSxWlP90VhJFJ8w' },
+    { imageSrc: album2, alt: 'Memories – Conan Gray',        url: 'https://open.spotify.com/album/5hIOd0FvjlgG4uLjXHkFWI?si=ZTtaG2C2Quu09KMrxwKl8Q' },
+    { imageSrc: album3, alt: 'Universe – EXO',                url: 'https://open.spotify.com/album/45RVbFvHsy7bsO7CQ2oQ6e?si=N1Er0kflQvaX1a3KlxraKw' },
+    { imageSrc: album4, alt: 'Justice – Justin Bieber',       url: 'https://open.spotify.com/album/5dGWwsZ9iB2Xc3UKR0gif2?si=2rgxxTYhQPSzE1MDCkh0cQ' },
+    { imageSrc: album5, alt: 'Red – Taylor Swift',            url: 'https://open.spotify.com/album/1KVKqWeRuXsJDLTW0VuD29?si=TEVo5oV_Q1ekTbA2gbU2MA' },
   ];
 
   const showFavorites = [
@@ -51,11 +51,11 @@ export default function Playground() {
   ];
 
   const bookFavorites = [
-    { imageSrc: book1, alt: 'The Hunger Games',        url: 'https://yourbooklink.com/1' },
-    { imageSrc: book2, alt: 'Legend',                  url: 'https://yourbooklink.com/2' },
-    { imageSrc: book3, alt: 'Outliers',                url: 'https://yourbooklink.com/3' },
-    { imageSrc: book4, alt: 'Pride & Prejudice',       url: 'https://yourbooklink.com/4' },
-    { imageSrc: book5, alt: 'Pachinko',                url: 'https://yourbooklink.com/5' },
+    { imageSrc: book1, alt: 'The Hunger Games',        url: 'https://www.goodreads.com/book/show/2767052-the-hunger-games' },
+    { imageSrc: book2, alt: 'Legend',                  url: 'https://www.goodreads.com/book/show/29863662-legend' },
+    { imageSrc: book3, alt: 'Outliers',                url: 'https://www.goodreads.com/book/show/3228917-outliers' },
+    { imageSrc: book4, alt: 'Pride & Prejudice',       url: 'https://www.goodreads.com/book/show/34051011-pachinko' },
+    { imageSrc: book5, alt: 'Pachinko',                url: 'https://www.goodreads.com/book/show/34051011-pachinko' },
   ];
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function Playground() {
         <main className="playground-main-col">
           {/* Globe Block */}
           <div className="playground-globe-container">
-            <h2 className="playground-col-title">my attempt at globetrotting 🩵</h2>
+            <h2 className="playground-col-title">my attempt at globetrotting 🩵 (shhh! click on the pins to see more)</h2>
             <InteractiveGlobe className="playground-globe" />
           </div>
 

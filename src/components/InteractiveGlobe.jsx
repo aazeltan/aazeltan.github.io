@@ -12,6 +12,7 @@ const sfImages      = importAll(require.context('../assets/globe/sanfrancisco', 
 const laImages      = importAll(require.context('../assets/globe/losangeles',    false, /\.(png|jpe?g|svg)$/));
 const seattleImages = importAll(require.context('../assets/globe/seattle',       false, /\.(png|jpe?g|JPG|svg)$/));
 const parisImages   = importAll(require.context('../assets/globe/paris',         false, /\.(png|jpe?g|svg)$/));
+const singaporeImages = importAll(require.context('../assets/globe/singapore',     false, /\.(png|jpe?g|svg)$/));
 
 export default function InteractiveGlobe({ className, onPhotoClick }) {
   const globeContainerRef = useRef(null);
@@ -27,6 +28,8 @@ export default function InteractiveGlobe({ className, onPhotoClick }) {
     else if (name.includes('los angeles'))  imgs = laImages;
     else if (name.includes('seattle'))      imgs = seattleImages;
     else if (name.includes('paris'))        imgs = parisImages;
+    else if (name.includes('singapore')) imgs = singaporeImages;
+
     setLocationImages(imgs);
   }, [selectedFeature]);
 
