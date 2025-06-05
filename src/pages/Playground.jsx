@@ -96,7 +96,8 @@ export default function Playground() {
         <main className="playground-main-col">
           {/* Globe Block */}
           <div className="playground-globe-container">
-            <h2 className="playground-col-title">my attempt at globetrotting 🩵 (shhh! click on the pins to see more)</h2>
+            <h2 className="playground-col-title">my attempt at globetrotting 🩵 </h2>
+            <h3 className="sidebar-title">(shhh! click on the pins to see more)</h3>
             <InteractiveGlobe className="playground-globe" />
           </div>
 

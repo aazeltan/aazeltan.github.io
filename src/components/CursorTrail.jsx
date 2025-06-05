@@ -1,4 +1,3 @@
-// src/components/CursorTrail.jsx
 import React, { useRef, useEffect } from 'react';
 import './CursorTrail.css';
 
@@ -10,7 +9,6 @@ export default function CursorTrail() {
     const ctx = canvas.getContext('2d');
     let mouseMoved = false;
 
-    // pointer state includes hover flag
     const pointer = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2,
@@ -19,8 +17,8 @@ export default function CursorTrail() {
 
     const params = {
       pointsNumber: 2,
-      maxRadius: 22,
-      minRadius: 13,
+      maxRadius: 15,
+      minRadius: 10,
       spring: 0.2,
       friction: 0.4,
     };
@@ -37,23 +35,29 @@ export default function CursorTrail() {
       pointer.y = y;
     };
 
-    // selector for clickable elements
     const clickableSelector = [
       'a[href]',
       'button',
+      'input:not([type="hidden"])',
+      'label',
+      'select',
+      'textarea',
       '[role="button"]',
       '[onclick]',
-      'input[type="button"]',
-      'input[type="submit"]',
-      '.clickable',
+      '[tabindex]:not([tabindex="-1"])',
+      '[data-clickable]',
+      '.clickable'
     ].join(',');
+
+    const isElementClickable = el =>
+      el?.matches?.(clickableSelector) || el?.closest?.(clickableSelector);
 
     const onMove = e => {
       mouseMoved = true;
       const x = e.clientX;
       const y = e.clientY;
       const el = document.elementFromPoint(x, y);
-      pointer.isHoveringClickable = el?.matches(clickableSelector);
+      pointer.isHoveringClickable = isElementClickable(el);
       updatePointer(x, y);
     };
 
@@ -81,7 +85,6 @@ export default function CursorTrail() {
         pointer.y = (0.5 + 0.02 * Math.cos(0.004 * t)) * canvas.height;
       }
 
-      // update trail physics
       trail.forEach((p, i) => {
         const prev = i === 0 ? pointer : trail[i - 1];
         p.dx += (prev.x - p.x) * params.spring;
@@ -98,12 +101,9 @@ export default function CursorTrail() {
         const radius = params.maxRadius * (1 - tnorm) + params.minRadius * tnorm;
         const alpha = 0.5 * (1 - tnorm) + 0.2;
 
-        // switch color when hovering clickable
-        if (pointer.isHoveringClickable) {
-          ctx.fillStyle = `rgba(255, 255, 191, 0.6`; // tomato
-        } else {
-          ctx.fillStyle = `rgba(100, 149, 237, ${alpha})`; // cornflower blue
-        }
+        ctx.fillStyle = pointer.isHoveringClickable
+          ? `rgba(255, 255, 191, 0.6)`
+          : `rgba(100, 149, 237, ${alpha})`;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);

@@ -120,7 +120,7 @@ export default function InteractiveGlobe({ className, onPhotoClick }) {
             {selectedFeature.fact        && <p><em>{selectedFeature.fact}</em></p>}
             {locationImages.length
               ? <AutoScrollGallery images={locationImages} />
-              : <p className="no-images-message">No photos found for this spot.</p>
+              : <p className="no-images-message">sorry! guess i couldnt find any photos D:</p>
             }
           </div>
         </div>,
