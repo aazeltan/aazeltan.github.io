@@ -1,0 +1,100 @@
+
+// 1) PALETTE & SETTINGS
+$shooting-time-ms: 14000;
+$shooting-time:   #{$shooting-time-ms}ms;
+$star-count:      80;
+
+$star-main-alpha: 0.3;
+$star-fade-alpha: 0;
+$tail-length:     400px;  // ← your new tail length
+
+// 2) BODY + RESET
+body {
+  background: #fffcf9;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// 3) NIGHT LAYER (behind literally everything)
+.night {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;  /* <- push it further back */
+}
+
+// 4) SHOOTING STAR
+.shooting_star {
+  position: absolute;
+  width: 0;
+  height: 2px;
+
+  background: linear-gradient(
+    -45deg,
+    rgba(95, 145, 255, $star-main-alpha),
+    rgba(95, 145, 255, $star-fade-alpha)
+  );
+
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgba(95,145,255,$star-main-alpha));
+
+  transform-origin: left center;
+  transform: rotateZ(45deg) translateX(-100vw);
+
+  animation:
+    tail     $shooting-time ease-in-out infinite both,
+    shooting $shooting-time linear        infinite both,
+    shining  $shooting-time ease-in-out infinite both;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1px; right: 0;
+    width: 0; height: 2px;
+    border-radius: 50%;
+    background: linear-gradient(
+      -45deg,
+      rgba(95,145,255,$star-fade-alpha),
+      rgba(95,145,255,$star-main-alpha),
+      rgba(95,145,255,$star-fade-alpha)
+    );
+    animation: shining $shooting-time ease-in-out infinite both;
+  }
+  &::before { transform: translateX(50%) rotateZ( 45deg); }
+  &::after  { transform: translateX(50%) rotateZ(-45deg); }
+
+  @for $i from 1 through $star-count {
+    &:nth-child(#{$i}) {
+      top:  random(100) * 1%;
+      left: random(100) * 1%;
+      $d: (random($shooting-time-ms) - 1) + ms;
+      animation-delay: -#{$d}, -#{$d}, -#{$d};
+      &::before,
+      &::after {
+        animation-delay: -#{$d};
+      }
+    }
+  }
+}
+
+// … rest of your file unchanged until keyframes …
+
+@keyframes tail {
+    0%, 100%     { width: 0; }
+    70%           { width: $tail-length; }  // pop out
+    5%          { width: 0; }             // retract early
+  }
+  
+  @keyframes shooting {
+    to {
+      transform: rotateZ(45deg) translateX(150vw);
+    }
+  }
+  
+  @keyframes shining {
+    0%, 100% { width: 0; }
+    50%      { width: 30px; }
+  }

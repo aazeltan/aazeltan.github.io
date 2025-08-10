@@ -1,0 +1,98 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "San Francisco" },
+      "geometry": { "type": "Point", "coordinates": [-122.4, 37.7] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Singapore" },
+      "geometry": { "type": "Point", "coordinates": [103.8198, 1.3521] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Los Angeles" },
+      "geometry": { "type": "Point", "coordinates": [-118.2437, 34.0522] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Tokyo, Japan" },
+      "geometry": { "type": "Point", "coordinates": [139.6503, 35.6762] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Seattle" },
+      "geometry": { "type": "Point", "coordinates": [-122.3321, 47.6062] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Shanghai" },
+      "geometry": { "type": "Point", "coordinates": [121.4737, 31.2304] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Amsterdam" },
+      "geometry": { "type": "Point", "coordinates": [4.9041, 52.3676] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "London" },
+      "geometry": { "type": "Point", "coordinates": [-0.1276, 51.5074] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Paris" },
+      "geometry": { "type": "Point", "coordinates": [2.3522, 48.8566] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Taipei" },
+      "geometry": { "type": "Point", "coordinates": [121.5654, 25.0330] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Seoul" },
+      "geometry": { "type": "Point", "coordinates": [126.9780, 37.5665] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "New York City" },
+      "geometry": { "type": "Point", "coordinates": [-74.0060, 40.7128] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Hong Kong" },
+      "geometry": { "type": "Point", "coordinates": [114.1095, 22.3964] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Sydney" },
+      "geometry": { "type": "Point", "coordinates": [151.2093, -33.8688] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Las Vegas" },
+      "geometry": { "type": "Point", "coordinates": [-115.1398, 36.1699] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Grand Canyon" },
+      "geometry": { "type": "Point", "coordinates": [-112.1129, 36.1069] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Zion National Park" },
+      "geometry": { "type": "Point", "coordinates": [-113.0263, 37.2982] }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Washington, DC"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0369, 38.9072]
+      }
+    }
+  ]
+}

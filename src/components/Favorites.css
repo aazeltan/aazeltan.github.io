@@ -1,0 +1,87 @@
+/* overall wrapper */
+.favorites {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+/* header row: centered above the strip */
+.favorites__header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* <-- center it */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* icon styling */
+.favorites__icon img {
+  width: 1.2em;
+  height: auto;
+}
+
+/* title text (not a link) */
+.favorites__title {
+  font-family: 'Mirage', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* strip of cards */
+.favorites__strip {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  overflow-x: visible;
+  overflow-y: visible;
+  padding-bottom: 0.5rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.favorites__strip::-webkit-scrollbar {
+  display: none;
+}
+
+/* each tappable card container */
+.favorites__item {
+  flex: 0 0 auto;
+  width: 170px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  overflow: visible;
+  text-decoration: none;
+}
+
+/* image itself */
+.favorites__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+  transform-origin: center center;
+}
+
+/* hover effect: image pops out */
+.favorites__item:hover .favorites__img {
+  transform: translateZ(5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* hover effect: container shadow lift */
+.favorites__item:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}

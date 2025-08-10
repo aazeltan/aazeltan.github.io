@@ -1,0 +1,117 @@
+.vintage-photobooth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* 1) Visible “window” */
+.strip-container {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 280 / 700;     /* shows slightly more than one photo */
+  overflow: hidden;
+  background: #000;
+  border: 4px solid #111;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+}
+
+/* 2) Inner strip: flex column + CSS animation */
+.strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  /* add this one rule: */
+  animation: scrollLoop 35s linear infinite;
+}
+
+/* 3) Loop from top → halfway up (i.e. one full container height) */
+@keyframes scrollLoop {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+/* pause animation on hover if you like */
+.strip-container:hover .strip {
+  animation-play-state: paused;
+}
+
+/* side rails */
+.strip-container::before,
+.strip-container::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 8px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #222 0, #222 4px,
+    transparent 4px, transparent 8px
+  );
+  z-index: 10;
+}
+.strip-container::before { left: 0; }
+.strip-container::after  { right: 0; }
+
+/* photo blocks */
+.photo-wrapper { margin: 6px 0; position: relative; }
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: #111;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    inset 0 0 6px rgba(0,0,0,0.6),
+    0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* B&W & color layers */
+.bw-img,
+.color-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+.bw-img   { filter: grayscale(100%); z-index: 1; }
+.color-img { opacity: 0;             z-index: 2; }
+.photo-wrapper:hover .bw-img   { opacity: 0; }
+.photo-wrapper:hover .color-img { opacity: 1; }
+
+/* texture overlays */
+.film-grain,
+.scratches,
+.grunge-overlay,
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.film-grain {
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg…noise…%3E");
+  mix-blend-mode: multiply;
+  z-index: 3;
+}
+.scratches {
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg…dust…%3E");
+  mix-blend-mode: screen;
+  z-index: 4;
+}
+.grunge-overlay {
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg…grunge…%3E");
+  mix-blend-mode: overlay;
+  z-index: 5;
+}
+.vignette {
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.7);
+  z-index: 6;
+}
