@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.50492454.css",
-    "main.js": "/static/js/main.f6152f69.js",
+    "main.css": "/static/css/main.1c929f07.css",
+    "main.js": "/static/js/main.56580820.js",
     "static/media/IMG_6311.JPG": "/static/media/IMG_6311.1ebdc65d5ef5aff8aa2e.JPG",
     "static/media/IMG_6373.JPG": "/static/media/IMG_6373.5c08c78ef826cc081c64.JPG",
     "static/media/IMG_6299.JPG": "/static/media/IMG_6299.86156617128af9f908ea.JPG",
@@ -16,6 +16,7 @@
     "static/media/uber_proj.png": "/static/media/uber_proj.62d393499e95d2a257c0.png",
     "static/media/about_photo.png": "/static/media/about_photo.af5120055cb2ff0b4dd4.png",
     "static/media/hospital_playlist.jpg": "/static/media/hospital_playlist.92caf45c030839924bb5.jpg",
+    "static/media/meta_proj.png": "/static/media/meta_proj.cb913f683f37adab5192.png",
     "static/media/ariana_grande_eternal_sunshine.png": "/static/media/ariana_grande_eternal_sunshine.0b0295f731b164060887.png",
     "static/media/major.png": "/static/media/major.38cf2044a0c6c3b2108d.png",
     "static/media/playground.png": "/static/media/playground.79f66edb53d758da4b47.png",
@@ -81,11 +82,11 @@
     "static/media/the_edge_of_seventeen.webp": "/static/media/the_edge_of_seventeen.1be6528fd0de4eb24791.webp",
     "static/media/star.png": "/static/media/star.db05099ad951013ff67c.png",
     "index.html": "/index.html",
-    "main.50492454.css.map": "/static/css/main.50492454.css.map",
-    "main.f6152f69.js.map": "/static/js/main.f6152f69.js.map"
+    "main.1c929f07.css.map": "/static/css/main.1c929f07.css.map",
+    "main.56580820.js.map": "/static/js/main.56580820.js.map"
   },
   "entrypoints": [
-    "static/css/main.50492454.css",
-    "static/js/main.f6152f69.js"
+    "static/css/main.1c929f07.css",
+    "static/js/main.56580820.js"
   ]
 }
