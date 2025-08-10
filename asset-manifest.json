@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.261afac6.css",
+    "main.css": "/static/css/main.4c8c9117.css",
     "main.js": "/static/js/main.56580820.js",
     "static/media/IMG_6311.JPG": "/static/media/IMG_6311.1ebdc65d5ef5aff8aa2e.JPG",
     "static/media/IMG_6373.JPG": "/static/media/IMG_6373.5c08c78ef826cc081c64.JPG",
@@ -82,11 +82,11 @@
     "static/media/the_edge_of_seventeen.webp": "/static/media/the_edge_of_seventeen.1be6528fd0de4eb24791.webp",
     "static/media/star.png": "/static/media/star.db05099ad951013ff67c.png",
     "index.html": "/index.html",
-    "main.261afac6.css.map": "/static/css/main.261afac6.css.map",
+    "main.4c8c9117.css.map": "/static/css/main.4c8c9117.css.map",
     "main.56580820.js.map": "/static/js/main.56580820.js.map"
   },
   "entrypoints": [
-    "static/css/main.261afac6.css",
+    "static/css/main.4c8c9117.css",
     "static/js/main.56580820.js"
   ]
 }
